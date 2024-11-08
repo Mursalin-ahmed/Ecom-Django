@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Products {% endblock %}
+{% block body %}
+
+<section>
+  <h1>CATALOG</h1>
+  <h2>Trending</h2>
+  <p>Our most trendy collection</p>
+  <div class="items">
+    {% for product in products %}
+    <div class="card">
+      <img src="{% static product.images %}" alt="{{ product.name }}" style="width:100%" />
+      <h3>{{ product.name }}</h3>
+      <p class="price">${{ product.price }}</p>
+      <p>
+        <a href="info.html">Learn More</a>
+        <a href="info.html">Add to Cart</a>
+      </p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}

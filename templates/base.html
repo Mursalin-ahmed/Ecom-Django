@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{% block title %} Something {% endblock %}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'Images/img-DS.png' %}" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/shop.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/men.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/info.css' %}" />
+    {% block extra_css %}{% endblock %}
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static './css/preloader.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="{% static './js/preloader.js' %}"></script>
+  </head>
+
+  <body>
+    <div class="se-pre-con"></div>
+    <header id="home">
+      <nav>
+        <ul>
+          <li class="primary-nav">
+            <img src="{% static 'Images/img-DS.png' %}" alt="logo" />
+            <a href="#home">DOWNY SHOES</a>
+          </li>
+          <li class="secondary-nav">
+            <a href="{% url 'cart_page' user.id%}">
+              <i class="fas fa-shopping-cart"></i> CART
+            </a>
+          </li>
+
+          {% if user.is_authenticated %}
+          <li class="secondary-nav">{{user.username}}</li>
+          <li class="secondary-nav"><a href="{% url 'logout' %}">LOGOUT</a></li>
+          {% else %}
+          <li class="secondary-nav"><a href="{% url 'login_user' %}">SIGN IN</a></li>
+          <li class="secondary-nav"><a href="{% url 'reg_user' %}">REGISTRATION</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+      <div class="pxtext">
+        <span class="border">
+          Nike Air Jordan
+        </span>
+        <p><a href="HTML/men.html">Shop Now</a></p>
+      </div>
+    </header>
+    {% block body %}
+    <h1>Hello ALL</h1>
+    {% endblock %}
+    <footer>
+      <div class="row foot">
+        <div class="col">
+          <h1>Downy Shoes</h1>
+          <p>
+            Official <a href="https://www.nike.com/xf/en_gb/">Nike</a> Partner
+          </p>
+        </div>
+        <div class="col">
+          <h2>Links</h2>
+          <ul>
+            <li><a href="./HTML/shop.html">Catalog</a></li>
+
+            <li><a href="./HTML/Contact-us.html">Contact us</a></li>
+            <li><a href="./HTML/survey.html">Take a survey</a></li>
+            <li>
+              <a href="./HTML/terms-and-conditions.html"
+                >Terms and conditions</a
+              >
+            </li>
+            <li>
+              <a href="./HTML/refund-policy.html">Refund Policy</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col">
+          <h2>
+            Copyright <sup>©</sup>
+            <a href="https://www.codepen.io/jeetg57" target="_blank"
+              >Jeet Gohil</a
+            >
+          </h2>
+        </div>
+      </div>
+    </footer>
+    <footer id="footer-social">
+      <ul class="row foot-icons" style="list-style-type: none;">
+        <li>
+          <a href="https://twitter.com/JeetGohil_" target="_blank">
+            <i class="fab fa-twitter fa-3x"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/MarioJT99" target="_blank">
+            <i class="fab fa-facebook fa-3x"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.codepen.io/jeetg57" target="_blank">
+            <i class="fab fa-codepen fa-3x"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/Jeetg57" target="_blank">
+            <i class="fab fa-github fa-3x"></i>
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

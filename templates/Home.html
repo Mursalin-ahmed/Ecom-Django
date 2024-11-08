@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home page {% endblock %}
+{% block body %}
+
+    <section>
+      <div
+        class="row"
+        style="width: 80%;
+      margin: 0 auto;"
+      >
+        <div class="col">
+           {% for i in cat %}
+          <div class="overlay-image">
+            <a href="{% url 'cat_shop' i.id %}">
+              <img class="image" src="{% static 'Images/img-men6.jpg' %}" alt="Alt text" />
+              <div class="normal">
+                <div class="text">{{i.name}}</div>
+              </div>
+
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <section class="preview">
+      <h2 align="center">Best Sellers</h2>
+      <div
+        class="row"
+        style="  width: 80%;
+      margin: 0 auto;"
+      >
+        <figure class="item">
+          <a href="HTML/info.html">
+            <img src="{% static 'Images/img-Nike1.jpg' %}" alt="" width="100%" />
+            <figcaption>Nike Run +</figcaption>
+          </a>
+        </figure>
+        <figure class="item">
+          <a href="HTML/info.html">
+            <img src="{% static 'Images/img-Nike3.jpg' %}" alt="" width="100%" />
+            <figcaption>Nike Air Blue</figcaption>
+          </a>
+        </figure>
+        <figure class="item">
+          <a href="HTML/info.html">
+            <img src="{% static 'Images/img-Nike5.jpg' %}" width="100%" />
+            <figcaption>Casual Nike</figcaption>
+          </a>
+        </figure>
+        <figure class="item">
+          <a href="HTML/info.html">
+            <img src="{% static 'Images/img-Nike10.jpg' %}" alt="" width="100%" />
+            <figcaption>Nike Air Orange</figcaption>
+          </a>
+        </figure>
+      </div>
+    </section>
+
+    <h3 style="text-align: center">
+      <a href="./HTML/survey.html">Click here to take a quick survey</a>
+    </h3>
+
+{% endblock %}

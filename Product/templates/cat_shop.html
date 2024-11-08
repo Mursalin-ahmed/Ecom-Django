@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Products {% endblock %}
+{% block body %}
+
+<section class="items">
+  <h1>{{ cat.name }}</h1>
+  <div class="row">
+
+    <div class="col2">
+
+      <img class="header-img" src="{% static 'Images/nike-zoom.gif' %}" alt="Nike Zoom" />
+      <div class="items2">
+        <!-- Loop through products -->
+        {% for i in prod %}
+        <div class="card">
+         <img src="{{i.image.url}}" alt="{{i.name}}" style="width:100%">
+          <h3>{{i.name}}</h3>
+          <p class="price">${{i.price}}</p>
+          <p><a href="{% url 'addtocart' i.id %}">Add to Cart</a>
+          <a href="{% url 'shop_page' i.id %}">Learn more</a></p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
